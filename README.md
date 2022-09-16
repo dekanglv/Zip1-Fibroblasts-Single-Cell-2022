@@ -8,7 +8,7 @@
 
 **scRNA_01_integration_clustering** - Script for reading in 10x raw count matrix, integrating datasets, dimension reduction and cell clustering.
 
-**scRNA_02_marker** - Script for identifying markers and compute functional profiles of each gene cluster.
+**scRNA_02_marker** - Script for identifying markers and compute functional profiles of each cluster.
 
 **scRNA_03_enrichment** - Script for pathway activity estimation and Gene Ontology enrichment analysis.
 
