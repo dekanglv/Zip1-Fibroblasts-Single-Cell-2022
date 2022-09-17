@@ -3,7 +3,7 @@
 #Cite Ni*,Lou*,Yao*, et al.
 #ZIP1+ fibroblasts protect lung cancer against chemotherapy 
 # via connexin-43 mediated intercellular Zn2+ transfer
-# Created by Dekang Lv
+#Created by Dekang Lv
 
 #attach libraries
 library(Seurat)
@@ -17,8 +17,8 @@ library(plyr)
 combined <- readRDS("combined.RDS")
 
 #.loom files are output of velocyto
-ldat1=list(dox1=read.loom.matrices("DOX.loom"),
-           pbs1=read.loom.matrices("PBS.loom"))
+ldat1 <- list(dox1=read.loom.matrices("DOX.loom"),
+              pbs1=read.loom.matrices("PBS.loom"))
 #merge datasets
 matrix.name <- names(ldat[1])
 ldat1 <- lapply(matrix.name, function(x){
@@ -59,9 +59,9 @@ nmat2 <- filter.genes.by.cluster.expression(nmat1, cell_cluster1, min.max.cluste
 #length(intersect(rownames(emat2), rownames(nmat2)))
 
 #refer state manifolds and save as rvel.qf1
-fit.quantile = 0.05 
-deltaT = 1 # default: 1
-kCells = 10
+fit.quantile  <-  0.05 
+deltaT  <-  1 # default: 1
+kCells  <-  10
 rvel.qf1 <- gene.relative.velocity.estimates(emat2, nmat2, 
                                              deltaT = deltaT, kCells = kCells, 
                                              fit.quantile = fit.quantile)
@@ -69,18 +69,18 @@ rvel.qf1 <- gene.relative.velocity.estimates(emat2, nmat2,
 #Save Output
 pdf("velocity_all.pdf")
 ##set point color for each cell
-cell_cluster1=as.character(new.dat$seurat_clusters)
-names(cell_cluster1)=rownames(new.dat)
+cell_cluster1 <- as.character(new.dat$seurat_clusters)
+names(cell_cluster1) <- rownames(new.dat)
 colors1 <- c("#F8766D", "#C49A00", "#53B400", "#00C094", "#00B6EB", "#A58AFF", "#FB61D7","#BEBEBE")
 names(colors1) <- sort(unique(new.dat$seurat_clusters))
-cell.colors1 = plyr::mapvalues(cell_cluster1, names(colors1), colors1)
-n = 100 
-scale = "sqrt" 
-cell.alpha = 0.2 
-cell.cex = 1 
-arrow.scale = 1 
-arrow.lwd = 1.5 
-grid.n = 50
+cell.colors1  <-  plyr::mapvalues(cell_cluster1, names(colors1), colors1)
+n  <-  100 
+scale  <-  "sqrt" 
+cell.alpha  <-  0.2 
+cell.cex  <-  1 
+arrow.scale  <-  1 
+arrow.lwd  <-  1.5 
+grid.n  <-  50
 show.velocity.on.embedding.cor(emb1, rvel.qf1, n, scale=scale, 
                                cell.colors = ac(cell.colors1, alpha = cell.alpha),
                                cex = cell.cex, arrow.scale = arrow.scale, 
@@ -101,9 +101,9 @@ nmat2 <- filter.genes.by.cluster.expression(nmat1, cell_cluster1, min.max.cluste
 #length(intersect(rownames(emat2), rownames(nmat2)))
 
 #refer state manifolds and save as rvel.qf1
-fit.quantile = 0.05
-deltaT = 1 # default: 1
-kCells = 10
+fit.quantile  <-  0.05
+deltaT  <-  1 # default: 1
+kCells  <-  10
 rvel.qf1 <- gene.relative.velocity.estimates(emat2, nmat2, 
                                              deltaT = deltaT, kCells = kCells, 
                                              fit.quantile = fit.quantile)
@@ -111,19 +111,19 @@ rvel.qf1 <- gene.relative.velocity.estimates(emat2, nmat2,
 #Save Output
 pdf("velocity_pbs.pdf")
 #set point color for each cell
-cell_cluster1=as.character(new.dat.pbs$seurat_clusters)
-names(cell_cluster1)=rownames(new.dat.pbs)
+cell_cluster1 <- as.character(new.dat.pbs$seurat_clusters)
+names(cell_cluster1) <- rownames(new.dat.pbs)
 colors1 <- c("#F8766D", "#C49A00", "#53B400", "#00C094", "#00B6EB", "#A58AFF", "#FB61D7","#BEBEBE")
 names(colors1) <- sort(unique(new.dat.pbs$seurat_clusters))
-cell.colors1 = plyr::mapvalues(cell_cluster1, names(colors1), colors1)
+cell.colors1  <-  plyr::mapvalues(cell_cluster1, names(colors1), colors1)
 
-n = 100 
-scale = "sqrt" 
-cell.alpha = 0.2 
-cell.cex = 1 
-arrow.scale = 1 
-arrow.lwd = 1.5 
-grid.n = 50
+n  <-  100 
+scale  <-  "sqrt" 
+cell.alpha  <-  0.2 
+cell.cex  <-  1 
+arrow.scale  <-  1 
+arrow.lwd  <-  1.5 
+grid.n  <-  50
 show.velocity.on.embedding.cor(emb1, rvel.qf1, n, scale=scale, 
                                cell.colors = ac(cell.colors1, alpha = cell.alpha),
                                cex = cell.cex, arrow.scale = arrow.scale, 
@@ -144,9 +144,9 @@ nmat2 <- filter.genes.by.cluster.expression(nmat1, cell_cluster1, min.max.cluste
 #length(intersect(rownames(emat2), rownames(nmat2)))
 
 #refer state manifolds and save as rvel.qf1
-fit.quantile = 0.05
-deltaT = 1 # default: 1
-kCells = 10
+fit.quantile  <-  0.05
+deltaT  <-  1 # default: 1
+kCells  <-  10
 rvel.qf1 <- gene.relative.velocity.estimates(emat2, nmat2, 
                                              deltaT = deltaT, kCells = kCells, 
                                              fit.quantile = fit.quantile)
@@ -154,19 +154,19 @@ rvel.qf1 <- gene.relative.velocity.estimates(emat2, nmat2,
 #Save Output
 pdf("velocity_dox.pdf")
 #set point color for each cell
-cell_cluster1=as.character(new.dat.dox$seurat_clusters)
-names(cell_cluster1)=rownames(new.dat.dox)
+cell_cluster1 <- as.character(new.dat.dox$seurat_clusters)
+names(cell_cluster1) <- rownames(new.dat.dox)
 colors1 <- c("#F8766D", "#C49A00", "#53B400", "#00C094", "#00B6EB", "#A58AFF", "#FB61D7","#BEBEBE")
 names(colors1) <- sort(unique(new.dat.dox$seurat_clusters))
-cell.colors1 = plyr::mapvalues(cell_cluster1, names(colors1), colors1)
+cell.colors1  <-  plyr::mapvalues(cell_cluster1, names(colors1), colors1)
 
-n = 100 
-scale = "sqrt" 
-cell.alpha = 0.2 
-cell.cex = 1 
-arrow.scale = 1 
-arrow.lwd = 1.5 
-grid.n = 50
+n  <-  100 
+scale  <-  "sqrt" 
+cell.alpha  <-  0.2 
+cell.cex  <-  1 
+arrow.scale  <-  1 
+arrow.lwd  <-  1.5 
+grid.n  <-  50
 show.velocity.on.embedding.cor(emb1, rvel.qf1, n, scale=scale, 
                                cell.colors = ac(cell.colors1, alpha = cell.alpha),
                                cex = cell.cex, arrow.scale = arrow.scale, 

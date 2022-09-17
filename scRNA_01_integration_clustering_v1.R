@@ -3,7 +3,7 @@
 #Cite Ni*,Lou*,Yao*, et al.
 #ZIP1+ fibroblasts protect lung cancer against chemotherapy 
 # via connexin-43 mediated intercellular Zn2+ transfer
-# Created by Dekang Lv
+#Created by Dekang Lv
 
 #attach libraries
 library(Seurat)
@@ -127,7 +127,7 @@ quantile(pbs@meta.data$nCount_RNA)
 
 #cellnames of the two dataset must have no overlap one for merging the two seurat object
 #in the following codes
-pbs@Dimnames[[2]]<-paste0(pbs@Dimnames[[2]],1)
+pbs@Dimnames[[2]] <- paste0(pbs@Dimnames[[2]],1)
 
 #combine dgcMatrix with meta data to Seurat object
 pbs <- CreateSeuratObject(counts = pbs, 
@@ -147,7 +147,7 @@ dox <- Read10X(data.dir = "CellRanger output folder for DOX/filtered_feature_bc_
 quantile(dox@meta.data$nFeature_RNA)
 quantile(dox@meta.data$nCount_RNA)
 
-dox@Dimnames[[2]]<-paste0(dox@Dimnames[[2]],2)
+dox@Dimnames[[2]] <- paste0(dox@Dimnames[[2]],2)
 
 dox <- CreateSeuratObject(counts = dox, 
                           project = "tumor_dox",
